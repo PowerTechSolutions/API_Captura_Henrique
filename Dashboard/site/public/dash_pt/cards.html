@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/imgs/Final.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geral</title>
+  
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="stylegestor.css">
+    <link rel="stylesheet" href="gestor11.css">
+    <script src="../../Teste_chatbot/chatbot.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../../css/chat.css">
+    <script src="../../js/chat.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../Teste_chatbot/chatbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script src="../js/funcoes.js"></script>
+
+</head>
+
+<body>
+    <div class="janela">
+
+        <div class="header-left dash-header">
+            <div class="sepration">
+                    <img class="perfil" src="power_tech_solutions_logo_semfundo.png" alt="">
+                <button onclick="geral()" id="fist_top"><img src="bar-line-chart.png" alt="" id="first"><img src="Group 1171274974.png"
+                        alt="" id="second">
+                    <p>Geral</p>
+                </button>
+                <!-- <button onclick="viewpoint()"><img src="element-3.png" id="fst" alt=""> <img id="send" src="element-3 (1).png" alt="">
+                    <p>View Point</p>
+                </button> -->
+            </div>
+            <div class="sepration2">
+                <button class="helpbutton"><img src="help-circle.png" alt="">
+                    <button onclick="erica()"><p>Central de ajuda</p></button>
+                </button>
+                <div class="crd2_sept">
+                    <img src="../../assets/imgs_power/do-utilizador.png" alt="">
+                    <p id="nome_usuario"></p>
+                    <details class="custom-select">
+                        <ul class="list">
+                            <li>
+                                <label for="item1">
+                                    <a href="../../index.html">Sair</a>
+                                    <span></span>
+                                </label>
+                            </li>
+                        </ul>
+                        <summary class="radios">
+                        </summary>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash">
+            <div class="cards" id="firstpart">
+                <div id="sept">
+                    <div id="row_sept">
+                        <div id="card_employee">
+                            <h2>Status dos funcionários</h2>
+                            <div class="title">
+                                <h3>ID</h3>
+                                <h3>Nome</h3>
+                                <h3>Data</h3>
+                                <h3>Status</h3>
+                            </div>
+                            <div class="arrangement" id="arrangement"></div>
+                        </div>
+                    </div>
+                    <div id="calendar">
+                        <div class="column">
+                            <div id="wifi">
+                                <div class="sepration_prt1">
+                                    <img src="image 6.png" alt="">
+                                    <p>Internet</p>
+                                </div>
+                                <div class="sepration_prt2">
+                                    <p>Status</p>
+                                    <p id="status_wifi">Seguro</p>
+                                </div>
+                            </div>
+                            <div id="reminder">
+                                <p>Lembrete ⚠️</p>
+                                <p id="data_atual">23/08/2023</p>
+                                <p>Não deixe sua CPU atingir 66% e seu disco 80%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card2">
+                    <div class="crd2_sept">
+                        <p>Alertas</p>
+                        <div class="dropdown_selection">
+                            <select onchange="exibirlocal(this.value)">
+                                <option> Escolha o mês para visualizar </option>
+                                <option value="01">Janeiro</option>
+                                <option value="02">Fevereiro</option>
+                                <option value="03">Março</option>
+                                <option value="04">Abril</option>
+                                <option value="05">Maio</option>
+                                <option value="06">Junho</option>
+                                <option value="07">Julho</option>
+                                <option value="08">Agosto</option>
+                                <option value="09">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="alertas" id="alertas">
+                        <canvas id="myChart1"></canvas>
+                        <canvas id="myChart2"></canvas>
+                        <canvas id="myChart3"></canvas>
+                        <canvas id="myChart4"></canvas>
+                        <canvas id="myChart5"></canvas>
+                        <canvas id="myChart6"></canvas>
+                        <canvas id="myChart7"></canvas>
+                        <canvas id="myChart8"></canvas>
+                        <canvas id="myChart9"></canvas>
+                        <canvas id="myChart10"></canvas>
+                        <canvas id="myChart11"></canvas>
+                        <canvas id="myChart12"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes">
+                <button id="message" onclick="literate()"><img src="../../assets/imgs_power/message_icon.ico" alt=""></button>
+                    <div class="dropdown_lit" id="lit_dropdown">
+                        <div id="main">
+                            <h2>Chat de Ajuda</h2>
+                            <div id="msg">
+                                <div id="robot">
+                                    <div class="bot"></div>
+                                    <h3>Agente</h3>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <input type="text" id="msg_send" placeholder="Nova mensagem">
+                                <button class="send" id="reply">Mandar <i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                        <script src="../../Teste_chatbot/chatbot.js"></script>
+                        <button id="close3"  onclick="clickclose3()"><b>x</b></button>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <script src="../../Teste_chatbot/chatbot.js"></script>
+</body>
+
+<script>
+
+    
+window.onload = init();
+
+
+    var data = new Date();
+    var dia = String(data.getDate()).padStart(2, '0');
+    var mes = String(data.getMonth() + 1).padStart(2, '0');
+    var ano = data.getFullYear();
+    var dataAtual = dia + '/' + mes + '/' + ano;
+    
+    window.onload = exibirlocal(mes)
+
+    data_atual.innerHTML = dataAtual;
+
+    function geral(){
+        window.location.href = "cards.html";
+    }
+
+    function erica(){
+        window.location.href = "dashboard_Erica.html";
+    }
+
+    let proximaAtualizacao;
+
+    var FKUnidade = sessionStorage.FKUnidade;
+    nome_usuario.innerHTML = sessionStorage.Nome_Usuario;
+    var idUsuario = sessionStorage.ID_USUARIO;
+    window.onload = atualizarFeed_usuarios();
+
+    function exibirlocal(mes) {
+
+        let todosOsGraficos = document.getElementById("alertas")
+    
+        for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+            // exibindo - ou não - o gráfico
+            let elementoAtual = document.getElementById(`myChart${i}`)
+            elementoAtual.style.display = "none"
+            
+        }
+
+        var idLocal = 0
+
+        for(j = 1;j<=12;j++){
+
+            if(j >= 10){
+                if(mes == `${j}`){
+                    idLocal = j
+                }
+            }else{
+                if(mes == `0${j}`){
+                    idLocal = j
+                }
+            }
+
+        }
+        
+        // exibindo - ou não - o gráfico
+        let graficoExibir = document.getElementById(`myChart${idLocal}`)
+        graficoExibir.style.display = "block"
+
+        obterDadosGrafico(FKUnidade,mes,idLocal)
+        
+    }
+
+    function atualizarFeed_usuarios() {
+
+        var IDEmpresaVar = sessionStorage.FKUnidade;
+
+        fetch("/usuarios/listar_usuarios", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idEmpServer: IDEmpresaVar,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                if (resposta.status == 204) {
+                        var feed = document.getElementById("arrangement");
+                        var mensagem = document.createElement("span");
+                        mensagem.innerHTML = "Nenhum resultado encontrado."
+                        feed.appendChild(mensagem);
+                        throw "Nenhum resultado encontrado!!";
+                    }
+
+                    resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("arrangement");
+                    for (let contador_usuario = 0; contador_usuario < resposta.length; contador_usuario++) {
+                        var publicacao = resposta[contador_usuario];
+                        // criando e manipulando elementos do HTML via JavaScript
+
+                        var usuario = document.createElement("div");
+                        usuario.className = "infoemp";
+                        usuario.setAttribute("onclick", `visualizar(${publicacao.IDUsuario})`)
+
+                        var id = document.createElement("p");
+                        id.innerHTML = publicacao.IDUsuario;
+                        usuario.appendChild(id);
+
+                        var nome = document.createElement("p");
+                        nome.innerHTML = publicacao.Nome;
+                        usuario.appendChild(nome);
+
+                        var data = new Date();
+                        var dia = String(data.getDate()).padStart(2, '0');
+                        var mes = String(data.getMonth() + 1).padStart(2, '0');
+                        var ano = data.getFullYear();
+                        var dataAtual = dia + '/' + mes + '/' + ano;
+
+                        var data = document.createElement("p");
+                        data.innerHTML = dataAtual;
+                        usuario.appendChild(data);
+
+                        var situacao = document.createElement("p");
+                        situacao.innerHTML = "Normal";
+                        usuario.appendChild(situacao);
+
+                        feed.appendChild(usuario)
+                    }
+                });
+            } else {
+                throw ("Houve um erro ao tentar realizar A pesquisa!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function obterDadosGrafico(FKUnidade,mes,idLocal) {
+
+        fetch("/medidas/ultimas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                FKUnidadeServer: FKUnidade,
+                mesServer: mes
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    plotarGrafico(resposta,FKUnidade,mes,idLocal);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta,FKUnidade,mes,idLocal) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = ["Atenção","Perigo","Critico"];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Alertas',
+                data: [],
+                fill: false,
+                borderColor: '#009EA3',
+                backgroundColor: '#009EA3'
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.datasets[0].data.push(registro.Alertas);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados
+        };
+
+        let myChart = new Chart(
+            document.getElementById(`myChart${idLocal}`),
+            config
+        );
+
+    }
+
+
+    function visualizar(IDUsuario){
+        sessionStorage.IDFuncionario = IDUsuario;
+        window.location.href = "viewpoint.html"
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/imgs/Final.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewPoint</title>
+    <script src="funcoes.js"></script>
+
+    <link rel="stylesheet" href="gestor11 copy.css">
+    <link rel="stylesheet" href="stylegestor copy.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../../css/chat.css">
+    <script src="../../js/chat.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../Teste_chatbot/chatbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script src="../js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- onload="validarSessao(), atualizacaoPeriodica()" -->
+    <div class="janela">
+
+
+        <div class="header-left dash-header">
+            <div class="sepration">
+                <img class="perfil" src="power_tech_solutions_logo_semfundo.png" alt="">
+                <button onclick="geral()" id="fist_top"><img src="bar-line-chart.png" alt="" id="first"><img
+                        src="Group 1171274974.png" alt="" id="second">
+                    <p>Geral</p>
+                </button>
+
+                <button onclick="viewpoint()"><img src="element-3.png" id="fst" alt=""> <img id="send"
+                        src="element-3 (1).png" alt="">
+                    <p>View Point</p>
+                </button>
+            </div>
+            <div class="sepration2">
+                <button class="helpbutton"><img src="help-circle.png" alt="">
+                    <p>Central de ajuda</p>
+                </button>
+                <div class="crd2_sept">
+                    <img src="../../assets/imgs_power/do-utilizador.png" alt="">
+                    <p id="nome_usuario"></p>
+                    <details class="custom-select">
+                        <ul class="list">
+                            <li>
+                                <label for="item1">
+                                    <a href="../../index.html">Sair</a>
+                                    <span></span>
+                                </label>
+                            </li>
+                        </ul>
+                        <summary class="radios">
+                        </summary>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash">
+            <div class="info_acc">
+                <div class="profile">
+                    <img src="pngimg.com - businessman_PNG6566.png" alt="">
+                    <span id="nome_usuario" class="informacoes"></span>
+                    <span id="email_usuario" class="informacoes"></span>
+                </div>
+            </div>
+            <div class="cards" id="firstpart">
+                <div id="sept">
+                    <div id="row_sept">
+                        <div id="card_employee">
+                            <h2>Status dos funcionários</h2>
+                            <div class="title">
+                                <h3>ID</h3>
+                                <h3>Nome</h3>
+                                <h3>Data</h3>
+                                <h3>Status</h3>
+                            </div>
+                            <div id="arrangement" class="arrangement">
+                                
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div id="wifi">
+                                <div class="sepration_prt1">
+                                    <img src="image 6.png" alt="">
+                                    <p>Internet</p>
+                                </div>
+                                <div class="sepration_prt2">
+                                    <p>Status</p>
+                                    <p id="status_wifi">Seguro</p>
+                                </div>
+                            </div>
+                            <div id="reminder" style="display: flex;align-items: center;">
+                                <!-- <p>Lembrete ⚠️</p>
+                                <p>23/08/1203</p>
+                                <p>Não deixe sua CPU atingir 66% e seu disco 80%
+                                </p> -->
+
+                                <select class="select_maquinas" name="maquinas" id="maquinas" onchange="fazerbusca(this.value)">
+                                    
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="calendar">
+                        <h3>Uso de Disco</h3>
+                        <div class="part_info_bar">
+                            <div class="info_bar" id="discos">
+                            </div>
+                            <div id="reminder2">
+                                <p>Lembrete ⚠️</p>
+                                <p>23/08/2023</p>
+                                <p>Não deixe sua CPU atingir 66% e seu disco 80%
+                                </p>
+                            </div>
+                            <div class="part_info_alert">
+                                <div class="alert">
+                                    <span>Verifique ID 2!! Funcionário Henryque!!!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card2">
+                    <div class="crd2_sept" id="crd2_sept">
+                        
+                        <select class="select_graph" onchange="exibirgraph(this.value)">
+                            <option>Selecione o Dado para visualizar</option>
+                            <option value=1>Uso de RAM</option>
+                            <option value=2>Uso de CPU</option>
+                        </select>
+                        <span id="avisoCaptura"></span>
+                    </div>
+                    <div class="grafico">
+                        <canvas id="myChart_CPU" class="graph"></canvas>
+                        <canvas id="myChart_RAM" class="graph"></canvas>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="boxes">
+                <button id="message" onclick="literate()"><img src="../../assets/imgs_power/message_icon.ico" alt=""></button>
+                    <div class="dropdown_lit" id="lit_dropdown">
+                        <div id="main">
+                            <h2>Chat de Ajuda</h2>
+                            <div id="msg">
+                                <div id="robot">
+                                    <div class="bot"></div>
+                                    <h3>Agente</h3>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <input type="text" id="msg_send" placeholder="Nova mensagem">
+                                <button class="send" id="reply">Mandar <i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                        <script src="../../Teste_chatbot/chatbot.js"></script>
+                        <button id="close3"  onclick="clickclose3()"><b>x</b></button>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <script src="../../Teste_chatbot/chatbot.js"></script>
+
+</body>
+
+<script>
+
+    //nome_usuario.innerHTML = `Teste`;
+    nome_usuario.innerHTML = sessionStorage.Nome_Usuario;   
+    email_usuario.innerHTML = sessionStorage.Email_Usuario;
+    var idUsuario = sessionStorage.ID_USUARIO;
+    window.onload = atualizarFeed_usuarios()
+    window.onload = atualizarFeed_maquina();
+
+</script>
+
+<style>
+
+    .graph{
+        width: 100%;
+        height: auto;
+    }
+    
+    .select_graph{
+        margin-left: 4%;
+        margin-top: 4%;
+        width: 10%;
+        height: 30%;
+        border-radius: 15%;
+    }
+
+    .grafico{
+        width: 97.5%;
+        height: 80%;
+        margin-top: 0;
+        margin-bottom: 5%;
+    }
+
+    .informacoes{
+        width: 20%;
+        height: auto;
+        color: white;
+    }
+
+    .profile{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+</html>
