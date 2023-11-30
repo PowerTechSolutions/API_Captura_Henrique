@@ -2,6 +2,7 @@ import org.apache.commons.dbcp2.BasicDataSource
 import org.springframework.jdbc.core.JdbcTemplate
 
 object ConexaoAWS {
+
     var jdbcTemplate: JdbcTemplate? = null
         get() {
             if (field == null) {
@@ -17,7 +18,9 @@ object ConexaoAWS {
             }
             return field
         }
+
     fun iniciarSqlServer(){
         jdbcTemplate = jdbcTemplate!!
     }
+
 }

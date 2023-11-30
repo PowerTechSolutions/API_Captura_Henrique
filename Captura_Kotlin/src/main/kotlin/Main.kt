@@ -1,23 +1,60 @@
 import com.github.britooo.looca.api.core.Looca
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.Scanner
 
 fun main() {
     val repositorio = Repositorio()
     repositorio.iniciar()
 
+    var sn = Scanner(System.`in`)
+
     val looca = Looca()
-    val janela = looca.grupoDeJanelas
-    val qtdJanela = janela.totalJanelasVisiveis
-    println(qtdJanela)
+    val grupojanela = looca.grupoDeJanelas
+    var janelas = grupojanela.janelasVisiveis
 
-    val dataHoraAtual = LocalDateTime.now()
-    val formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-    val dataHoraFormatada = dataHoraAtual.format(formato)
+    println("Qual seu Email?")
+    var email = sn.next()
 
-    val captacao = Janela()
-    captacao.dado = qtdJanela
-    captacao.dtHora = dataHoraFormatada
+    println("Qual seu Senha?")
+    var senha = sn.next()
 
-    repositorio.add(captacao)
+    if(repositorio.autenticar(email,senha)>0){
+
+        var usuario = repositorio.buscarInfo(email,senha)
+
+        var maquinas = repositorio.buscarMaquina(usuario.IDUsuario)
+
+        var texto = ""
+
+        for (maquina in maquinas){
+
+            texto += "\n\r${maquina.IDMaquina} | ${maquina.Apelido}"
+
+        }
+
+        println("""
+Digite a numeração a maquina para fazer a captura,$texto
+        """.trimIndent())
+
+        var idMaquina = sn.next().toInt()
+        val dataHoraAtual = LocalDateTime.now()
+        val formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        val dataHoraFormatada = dataHoraAtual.format(formato)
+        val captacao = Janela()
+
+        for (janela in janelas){
+
+            repositorio.insert(idMaquina,janela)
+
+        }
+
+
+    }
+
+
+
+
+
+    //repositorio.inserirBanco(captacao)
 }
