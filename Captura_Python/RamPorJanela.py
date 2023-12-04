@@ -35,11 +35,11 @@ def insert_ram_info(conn, machine_id, ram_info):
      current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
  
      query = """
-     INSERT INTO RamInfo (MachineID, Total, Available, PercentUsed, Timestamp)
-     VALUES (?, ?, ?, ?, ?)
+     INSERT INTO RamInfo (MachineID, Total, PercentUsed, Timestamp)
+     VALUES (?, ?, ?, ?)
      """
  
-     cursor.execute(query, (machine_id, ram_info['total'], ram_info['available'], ram_info['memory_percent'], current_time))
+     cursor.execute(query, (machine_id, total_memory['total'], memory_percent['PercentUsed'], current_time))
      conn.commit()
  
  # Configuração da conexão com o SQL Server
