@@ -1,3 +1,11 @@
+import com.github.britooo.looca.api.group.janelas.Janela
+import java.io.File
+
+object CodigoPython {
+
+    fun execPython(idMaquina:Int,janela: Janela){
+
+        var codigo = """
 import psutil
 import win32gui
 import win32process
@@ -34,12 +42,12 @@ def insert_ram_info(conn, machine_id, ram_info):
      cursor = conn.cursor()
      current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
  
-     query = f"""
+     query = f""${'"'}
      INSERT INTO Henry (Janela,Uso_Ram,FKMaquina)
-     VALUES ({}, {memory_percent['PercentUsed']}, 1)
-     """
+     VALUES ('${janela.titulo}', {memory_percent['PercentUsed']}, $idMaquina)
+     ""${'"'}
  
-     cursor.execute(query, (machine_id, total_memory['total'], , current_time))
+     cursor.execute(query)
      conn.commit()
  
  # Configuração da conexão com o SQL Server
@@ -56,12 +64,15 @@ conn = pyodbc.connect(conn_str)
 machine_id = get_machine_id()
  
  # Loop para monitorar e inserir dados no SQL Server
-while True:
-    ram_info = get_ram_info()
-    insert_ram_info(conn, machine_id, ram_info)
-     
-     # Intervalo de espera (em segundos) entre as medições
-    interval_seconds = 60
-    time.sleep(interval_seconds)
- 
- 
+ram_info = get_ram_info()
+insert_ram_info(conn, machine_id, ram_info)
+"""
+
+        var nomeArquivo = "CodigoPythonHenry.py"
+
+        File(nomeArquivo).writeText(codigo)
+        Runtime.getRuntime().exec("py $nomeArquivo")
+
+    }
+
+}

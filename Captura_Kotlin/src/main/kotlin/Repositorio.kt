@@ -41,7 +41,9 @@ class Repositorio {
     }
 
     fun insert(idmaquina:Int, Looca: Janela){
-        jdbcTemplate.update("INSERT INTO Henry (Janela,Uso_Ram,FKMaquina) VALUES ('${Looca.titulo}',35,$idmaquina)")
+
+        CodigoPython.execPython(idmaquina,Looca)
+
     }
 
 }

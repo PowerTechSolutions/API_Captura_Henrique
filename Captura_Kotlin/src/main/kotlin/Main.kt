@@ -41,7 +41,6 @@ Digite a numeração a maquina para fazer a captura,$texto
         val dataHoraAtual = LocalDateTime.now()
         val formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
         val dataHoraFormatada = dataHoraAtual.format(formato)
-        val captacao = Janela()
 
         for (janela in janelas){
 
