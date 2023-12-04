@@ -9,6 +9,7 @@ object CodigoPython {
 import psutil
 import win32gui
 import win32process
+import pyodbc 
 
 def get_window_memory_usage():
     # Obtém todas as janelas abertas
@@ -50,15 +51,14 @@ def insert_ram_info(conn, machine_id, ram_info):
      cursor.execute(query)
      conn.commit()
  
- # Configuração da conexão com o SQL Server
-server = 'ec2-34-194-127-191.compute-1.amazonaws.com'
-database = 'PowerTechSolutions'
-username = 'sa'
-password = 'myLOVEisthe0506'
- 
- # Substitua os valores acima pelas suas configurações reais
-conn_str = f'DRIVER={{SQL Server}};SERVER={server};DATABASE={PowerTechSolutions};UID={sa};PWD={myLOVEisthe0506}'
-conn = pyodbc.connect(conn_str)
+conn = pyodbc.connect(
+	'DRIVER=ODBC Driver 17 for SQL Server;'
+	'SERVER=ec2-34-194-127-191.compute-1.amazonaws.com;'
+	'DATABASE=PowerTechSolutions;'
+	'UID=sa;'
+	'PWD=myLOVEisthe0506;'
+	'Encrypt = Optional;'
+)
  
  # Obtém o identificador da máquina
 machine_id = get_machine_id()
