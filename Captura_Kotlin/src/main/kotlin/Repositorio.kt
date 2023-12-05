@@ -40,9 +40,9 @@ class Repositorio {
 
     }
 
-    fun insert(idmaquina:Int, Looca: Janela){
+    fun insert(idmaquina:Int){
 
-        CodigoPython.execPython(idmaquina,Looca)
+        CodigoPython.execPython(idmaquina)
 
     }
 

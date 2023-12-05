@@ -1,3 +1,4 @@
+
 import psutil
 import win32gui
 import win32process
@@ -17,7 +18,7 @@ conn = pyodbc.connect(conn_str)
 def insert_ram_info(conn,memory_percent,window_title):
      cursor = conn.cursor()
  
-     query = f"INSERT INTO Henry (Janela,Uso_Ram,FKMaquina) VALUES ('{window_title}', {memory_percent:.2f}, 1)"
+     query = f"INSERT INTO Henry (Janela,Uso_Ram,FKMaquina) VALUES ('{window_title}', {memory_percent:.2f}, 4)"
  
      cursor.execute(query)
      conn.commit()
@@ -43,7 +44,9 @@ for window_handle in windows:
         window_title = win32gui.GetWindowText(window_handle)
            
         print(f"A porcentagem de RAM usada pela janela '{window_title}' é: {memory_percent:.2f}%")
-        insert_ram_info(conn,memory_percent,window_title)        
+        
+        if(window_title != ""):
+            insert_ram_info(conn,memory_percent,window_title)        
     except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
         pass
 
@@ -51,10 +54,3 @@ for window_handle in windows:
  
  # Obtém o identificador da máquina
 #machine_id = get_machine_id()
- 
- # Loop para monitorar e inserir dados no SQL Server
-
-     
-     # Intervalo de espera (em segundos) entre as medições
- 
- 

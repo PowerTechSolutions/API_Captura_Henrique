@@ -40,13 +40,8 @@ Digite a numeração a maquina para fazer a captura,$texto
         var idMaquina = sn.next().toInt()
         val dataHoraAtual = LocalDateTime.now()
         val formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        val dataHoraFormatada = dataHoraAtual.format(formato)
 
-        for (janela in janelas){
-
-            repositorio.insert(idMaquina,janela)
-
-        }
+            repositorio.insert(idMaquina)
 
 
     }
